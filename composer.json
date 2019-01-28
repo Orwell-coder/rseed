@@ -1,0 +1,32 @@
+{
+    "name": "jsonphper/rseed",
+    "description": "Laravel 5 reverse seed generator",
+	"keywords": ["seed", "rseed", "database","laravel","php"],
+	"homepage": "https://github.com/jsonphper/rseed",
+    "license": "MIT",
+	"authors": [
+        {
+            "email": "attempt321@163.com",
+			"homepage": "http://zxcode.cn"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+	"autoload": {
+        "files": [
+        ],
+        "psr-4": {
+            "jsonphper\\rseed\\": "src/"
+        }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "Jsonphper\\Rseed\\RseedServiceProvider"
+        ],
+        "aliases": {
+        }
+      }
+    }
+}
