@@ -1,2 +1,2 @@
 # rseed
-Laravel 5 reverse Seed Generator and support ElasticSearch 
+Laravel 5 reverse Seed Generator from data
