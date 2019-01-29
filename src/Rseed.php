@@ -49,7 +49,7 @@ class Rseed extends Iseed
      * @return bool
      * @throws Orangehill\Iseed\TableNotFoundException
      */
-    public function generateSeed($data, $fileName, $prefix=null, $suffix=null,  $max = 0, $chunkSize = 0, $prerunEvent = null, $postrunEvent = null, $dumpAuto = true, $indexed = true)
+    public function generateSeed($data, $fileName, $prefix=null, $suffix=null,  $max = 0, $chunkSize = 0, $prerunEvent = null, $postrunEvent = null,  $indexed = true)
     {
         // Repack the data
         $dataArray = $this->repackSeedData($data);
@@ -74,10 +74,6 @@ class Rseed extends Iseed
         );
         // Save a populated stub
         $this->files->put($seedsPath, $seedContent);
-        // Run composer dump-auto
-        if ($dumpAuto) {
-            $this->composer->dumpAutoloads();
-        }
         // Update the DatabaseSeeder.php file
         return $this->updateDatabaseSeederRunMethod($className) !== false;
     }
