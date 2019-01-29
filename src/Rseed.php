@@ -68,7 +68,7 @@ class Rseed extends Iseed
         $seedContent = $this->populateStub(
             $className,
             $stub,
-            $table,
+            $fileName,
             $dataArray,
             $chunkSize,
             $prerunEvent,
