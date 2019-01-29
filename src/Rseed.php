@@ -37,19 +37,22 @@ class Rseed extends Iseed
     private $path = null;
 
 
+  
     /**
-     * Generates a seed file.
-     * @param  string   $table
-     * @param  string   $prefix
-     * @param  string   $suffix
-     * @param  string   $database
-     * @param  int      $max
-     * @param  string   $prerunEvent
-     * @param  string   $postunEvent
-     * @return bool
-     * @throws Orangehill\Iseed\TableNotFoundException
+     * build a seeder file
+     *
+     * @param [type] $data
+     * @param [type] $fileName
+     * @param [type] $prefix
+     * @param [type] $suffix
+     * @param integer $max
+     * @param integer $chunkSize
+     * @param [type] $prerunEvent
+     * @param [type] $postrunEvent
+     * @param boolean $indexed
+     * @return void
      */
-    public function generateSeed($data, $fileName, $prefix=null, $suffix=null,  $max = 0, $chunkSize = 0, $prerunEvent = null, $postrunEvent = null,  $indexed = true)
+    public function buildSeed($data, $fileName, $prefix=null, $suffix=null,  $max = 0, $chunkSize = 0, $prerunEvent = null, $postrunEvent = null,  $indexed = true)
     {
         // Repack the data
         $dataArray = $this->repackSeedData($data);
