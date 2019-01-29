@@ -30,6 +30,14 @@ class Rseed extends Iseed
 
 
     /**
+     * File save directory
+     *
+     * @var [type]
+     */
+    private $path = null;
+
+
+    /**
      * Generates a seed file.
      * @param  string   $table
      * @param  string   $prefix
@@ -77,9 +85,21 @@ class Rseed extends Iseed
      * Get a seed folder path
      * @return string
      */
-    public function getSeedPath($path = null)
+    public function getSeedPath()
     {
-        return $path ?? base_path() . config('iseed::config.path');
+        return $this->path ?? base_path() . config('iseed::config.path');
+    }
+    
+    /**
+     * Set a seed folder path
+     *
+     * @param [type] $path
+     * @return void
+     */
+    public function setSeedPath($path)
+    {
+        $this->path = $path;
+        return $this;
     }
 
    
