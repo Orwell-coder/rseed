@@ -107,6 +107,7 @@ class Rseed extends Iseed
     public function setSeedPath($path)
     {
         $this->path = $path;
+        $this->setDatabaseSeederPath();
         return $this;
     }
 
@@ -126,7 +127,7 @@ class Rseed extends Iseed
      * @param [type] $path
      * @return void
      */
-    public function setDatabaseSeederPath($path)
+    public function setDatabaseSeederPath()
     {
         try{
             if(!$this->path){
@@ -134,14 +135,13 @@ class Rseed extends Iseed
             }
             copy(__DIR__ . DIRECTORY_SEPARATOR . 'template'. DIRECTORY_SEPARATOR . 'DatabaseSeeder.php', $this->path);
             $this->seederPath = $this->path;
-            return $this;
         }catch(\Exception $e){
             throw new \Exception($e->getMessage());
         }
         
     }
 
-        /**
+    /**
      * Cleans the iSeed section
      * @return bool
      */
