@@ -133,8 +133,15 @@ class Rseed extends Iseed
             if(!$this->path){
                 throw new \Exception("Please set SeedPath floder !");
             }
-            copy(__DIR__ . DIRECTORY_SEPARATOR . 'template'. DIRECTORY_SEPARATOR . 'DatabaseSeeder.php', $this->path);
-            $this->seederPath = $this->path;
+
+            $srcDatabaseSeeder = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR .'template'. DIRECTORY_SEPARATOR . 'DatabaseSeeder.php';
+            $dstDatabaseSeeder = $this->path. DIRECTORY_SEPARATOR . 'DatabaseSeeder.php';
+
+            if(!file_exists($dstDatabaseSeeder)){
+                copy($srcDatabaseSeeder, $dstDatabaseSeeder);
+            }
+            
+            $this->seederPath = $dstDatabaseSeeder;
         }catch(\Exception $e){
             throw new \Exception($e->getMessage());
         }
