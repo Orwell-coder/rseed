@@ -54,6 +54,7 @@ class Rseed extends Iseed
      */
     public function buildSeed($data, $fileName, $prefix=null, $suffix=null,  $max = 0, $chunkSize = 0, $prerunEvent = null, $postrunEvent = null,  $indexed = true)
     {
+        $chunkSize  = $chunkSize > 0 ? $chunkSize : 500;
         // Repack the data
         $dataArray = $this->repackSeedData($data);
         // Generate class name
